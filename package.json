@@ -14,7 +14,7 @@
   },
   "main": "main.js",
   "scripts": {
-    "build-osx": "electron-packager . bitcoin-luno-price --platform=darwin --arch=x64 --electronVersion=1.0.0 --icon=assets/bitcoin-logo64.png",
+    "build-osx": "electron-packager . bitcoin-luno-price --platform=darwin --arch=x64 --overwrite --electronVersion=1.0.0 --icon=assets/bitcoin-logo64.png",
     "start": "electron ."
   }
 }
