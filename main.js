@@ -22,7 +22,7 @@ const createTray = () => {
   //let icon = nativeImage.createFromDataURL(base64Icon)
   tray = new Tray(path.join(assetsDir, 'bitcoin-logo.png'))
   const contextMenu = Menu.buildFromTemplate([
-    {label: 'Item1', type: 'radio'},
+    //{label: 'Item1', type: 'radio'},
     //{label: 'About',click() { dialog.showMessageBox({title: "Bitcoin Ticker", type:"info", message: "A realtime trading price for Luno. \nMIT Copyright (c) 2017 Shafiq Mustapa <sicksand@gmail.com>", buttons: ["Close"] })}},
     {label: 'Exit', click() { app.quit() }}
   ])
@@ -39,10 +39,6 @@ const createTray = () => {
       window.openDevTools({mode: 'detach'})
     }
   })
-  
-    
-  //tray.setTitle(price)
-  tray.setToolTip('Bitcoin price.')
   tray.setContextMenu(contextMenu)
 }
 
@@ -99,6 +95,7 @@ ipcMain.on('show-window', () => {
 //get price updated
 ipcMain.on('price-updated', (event, price) => {
   //set price on tray
+  tray.setToolTip('RM ' + `${price}`)
   tray.setTitle('RM ' + `${price}`)
 })
 
