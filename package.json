@@ -1,5 +1,6 @@
 {
   "name": "bitcoin-luno-price",
+  "productName": "Bitcoin(Luno) Price",
   "version": "1.0.0",
   "description": "A simple menubar/tray app for current price of bitcoin (luno)",
   "license": "Apache 2.0 License",
@@ -14,7 +15,8 @@
   },
   "main": "main.js",
   "scripts": {
-    "build-osx": "electron-packager . bitcoin-luno-price --platform=darwin --arch=x64 --overwrite --electronVersion=1.0.0 --icon=assets/bitcoin-logo64.png",
+    "build-osx": "electron-packager . bitcoin-luno-price --prune=true --platform=darwin --arch=x64 --overwrite --electronVersion=1.0.0 --icon=assets/bitcoin-logo64.icns",
+    "build-win32": "electron-packager . bitcoin-luno-price --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/bitcoin-logo64.png --prune=true --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Bitcoin(Luno) Price\"",
     "start": "electron ."
   }
 }

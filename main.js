@@ -24,7 +24,7 @@ const createTray = () => {
   const contextMenu = Menu.buildFromTemplate([
     {label: 'Item1', type: 'radio'},
     //{label: 'About',click() { dialog.showMessageBox({title: "Bitcoin Ticker", type:"info", message: "A realtime trading price for Luno. \nMIT Copyright (c) 2017 Shafiq Mustapa <sicksand@gmail.com>", buttons: ["Close"] })}},
-    {label: 'exit', click() { app.quit() }}
+    {label: 'Exit', click() { app.quit() }}
   ])
   // Add a click handler so that when the user clicks on the menubar icon, it shows
   // our popup window
