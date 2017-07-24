@@ -57,13 +57,13 @@ html, body {
   margin: auto;
   text-align: center;
   margin-top: 16px;
-  font-size: var(--font-size);
+  font-size: calc(var(--font-size) + 6px);
   font-weight: 300;
   color: var(--text-color);
 }
 
 .reading {
-  font-size: calc(var(--font-size) + 6px);
+  font-size: calc(var(--font-size) + 2px);
   font-weight: 300;
   color: var(--text-color);
 }

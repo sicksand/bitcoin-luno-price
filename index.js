@@ -1,4 +1,4 @@
-const {ipcRenderer} = require('electron')
+const {ipcRenderer,shell} = require('electron')
 
 document.addEventListener('click', (event) => {
   if (event.target.href) {
@@ -34,9 +34,17 @@ const updatePrice = () => {
 }
 */
 const updateHTML = (bp) => {
-
-
-  document.querySelector('.js-update-time').textContent = `${bp[0].ask}`
+  var date = new Date(+(`${bp[0].timestamp}`))
+  var formattedDate = date.getDate() + '-' + ('0' +(date.getMonth()+1)).slice(-2) + '-' + date.getFullYear() + ' ' + date.getHours() + ":" + ('0' + date.getMinutes()).slice(-2) + ":" + ('0' + date.getSeconds()).slice(-2)
+  var bPrice = Number(`${bp[0].bid}`).toLocaleString()
+  var aPrice = Number(`${bp[0].ask}`).toLocaleString()
+  var hPrice = (+(`${bp[0].bid}`) + +(`${bp[0].ask}`)) / 2
+  hPrice = hPrice.toString().split('.')
+  var sPrice = Number(hPrice[0]).toLocaleString()
+  document.querySelector('.js-update-time').textContent = `${formattedDate}`
+  document.querySelector('.js-summary').textContent = `RM ${sPrice}`
+  document.querySelector('.price-bid').textContent = `RM ${bPrice}`
+  document.querySelector('.price-ask').textContent = `RM ${aPrice}`
 }
 const getPrice = () => {
   // fetch json data
@@ -51,7 +59,7 @@ const getPrice = () => {
     .then(function(data) {
      const bp = data.tickers
      price = bp[0].ask.toLocaleString('en-US')
-     ipcRenderer.send('price-updated', price)
+     ipcRenderer.send('price-updated', bp)
      updateHTML(bp)
      console.log('sending price...'+ str_date + " " + str_time)
     })
