@@ -15,10 +15,9 @@
   },
   "main": "main.js",
   "scripts": {
-    "build-osx": "electron-packager blp-osx  bitcoin-luno-price --prune=true --platform=darwin --arch=x64 --overwrite --electronVersion=1.0.0 
---icon=assets/bitcoin-logo64.icns",
-    "build-win32": "electron-packager blp-win32  bitcoin-luno-price --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/bitcoin-logo64.png 
---prune=true --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Bitcoin(Luno) Price\"",
+    "build-osx": "electron-packager output  bitcoin-luno-price --prune=true --platform=darwin --arch=x64 --overwrite --electronVersion=1.0.1 --icon=assets/bitcoin-logo64.icns",
+    "build-win32": "electron-packager output  bitcoin-luno-price --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/bitcoin-logo64.png --prune=true --version-string.CompanyName=CE --version-string.FileDescription=CE 
+--version-string.ProductName=\"Bitcoin(Luno) Price\"",
     "start": "electron ."
   }
 }

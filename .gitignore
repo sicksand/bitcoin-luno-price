@@ -1,3 +1,4 @@
 node_modules/*
 bitcoin-luno-price-darwin-x64/*
 bitcoin-luno-price-win32-ia32/*
+output/*
