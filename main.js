@@ -1,5 +1,6 @@
 const {app, BrowserWindow, Menu, ipcMain, Tray} = require('electron')
 const fetch = require('electron-fetch') 
+const platform = require('os')
 const path = require('path')
 
 
@@ -9,7 +10,10 @@ const assetsDir = path.join(__dirname, 'assets')
 let tray = undefined
 let window = undefined
 
-app.dock.hide()
+if (platform == 'darwin') {
+  app.dock.hide()
+} 
+
 
 // This method is called once Electron is ready to run our code
 // It is effectively the main method of our Electron app
