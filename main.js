@@ -1,6 +1,5 @@
 const {app, BrowserWindow, Menu, ipcMain, Tray} = require('electron')
 const fetch = require('electron-fetch') 
-const platform = require('os')
 const path = require('path')
 
 
@@ -10,7 +9,7 @@ const assetsDir = path.join(__dirname, 'assets')
 let tray = undefined
 let window = undefined
 
-if (platform == 'darwin') {
+if (process.platform == 'darwin') {
   app.dock.hide()
 } 
 
