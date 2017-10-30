@@ -1,5 +1,7 @@
 const {ipcRenderer,shell} = require('electron')
 
+let voice = undefined
+
 document.addEventListener('click', (event) => {
   if (event.target.href) {
     // Open links in external browser
@@ -45,6 +47,7 @@ const updateHTML = (bp) => {
   document.querySelector('.js-summary').textContent = `RM ${sPrice}`
   document.querySelector('.price-bid').textContent = `RM ${bPrice}`
   document.querySelector('.price-ask').textContent = `RM ${aPrice}`
+  speakTheGoodNews(sPrice)
 }
 const getPrice = () => {
   // fetch json data
@@ -65,6 +68,13 @@ const getPrice = () => {
     })
     
 }
+
+const speakTheGoodNews = (sPrice) => {
+  const utterance = new SpeechSynthesisUtterance(`The current price of 1 Bitcoin is RM ${sPrice}`)
+  utterance.voice = voice
+  speechSynthesis.speak(utterance)
+}
+
 
 // update price every 2 minutes (in milliseconds)
 const fifteenMinutes = 900000
