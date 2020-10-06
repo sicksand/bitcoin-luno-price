@@ -6,7 +6,7 @@
   "license": "Apache 2.0 License",
   "repository": "github.com/sicksand/bitcoin-luno-price",
   "devDependencies": {
-    "electron": ">=7.2.4",
+    "electron": ">=9.3.1",
     "electron-packager": "^15.0.0"
   },
   "dependencies": {
